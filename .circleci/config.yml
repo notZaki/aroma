@@ -28,7 +28,7 @@ jobs:
       - save_cache:
           key: conda-py37-v1-{{ checksum "setup.cfg" }}
           paths:
-              - /opt/miniconda-latest/envs/aroma_py37
+              - /opt/conda/envs/aroma_py37
 
   unittest_36:
     docker:
@@ -42,7 +42,7 @@ jobs:
           name: Generate environment
           command: |
             # apt-get install -yqq make
-            if [ ! -d /opt/miniconda-latest/envs/aroma_py36 ]; then
+            if [ ! -d /opt/conda/envs/aroma_py36 ]; then
               conda create -yq -n aroma_py36 python=3.6
               source activate aroma_py36
               pip install -e ".[test]"
@@ -57,7 +57,7 @@ jobs:
       - save_cache:
           key: conda-py36-v1-{{ checksum "setup.cfg" }}
           paths:
-              - /opt/miniconda-latest/envs/aroma_py36
+              - /opt/conda/envs/aroma_py36
       - persist_to_workspace:
           root: /tmp
           paths:
@@ -96,7 +96,7 @@ jobs:
           name: Generate environment
           command: |
             # apt-get install -yqq make
-            if [ ! -d /opt/miniconda-latest/envs/aroma_py36 ]; then
+            if [ ! -d /opt/conda/envs/aroma_py36 ]; then
               conda create -yq -n aroma_py36 python=3.6
               source activate aroma_py36
               pip install -e ".[test]"
